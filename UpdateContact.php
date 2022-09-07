@@ -3,7 +3,7 @@
 	$inData = getRequestInfo();
 
 	$username = $inData['username'];
-    $contactID = $inData['contact_id'];
+    	$contactID = $inData['contact_id'];
 	$firstName = $inData['firstname'];
 	$lastName = $inData['lastname'];
 	$phonenumber = $inData['phonenumber'];

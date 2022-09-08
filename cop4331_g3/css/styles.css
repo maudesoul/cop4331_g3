@@ -6,8 +6,9 @@ body
 
 p 
 {
-    color: #FFFFFF;
+    color: #643719;
     font-size: 16px;
+    padding-top: 25px;
 }
 
 .main 
@@ -16,7 +17,7 @@ p
     height: 440px;
     margin-top: 710px;
     border-radius: 10px;
-    background-color: #B08858;
+    background-color: #a37f52;
 }
 
 .center 
@@ -38,12 +39,28 @@ p
     margin-top: 29px;
 }
 
+#register-owl-logo 
+{
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+    margin-top: 40px;
+}
+
 #header-text
 {   
     position: relative;
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 47px;
     color: #FFFFFF;
+}
+
+#register-text
+{   
+    position: relative;
+    font-size: 40px;
+    color: #FFFFFF;
+    margin-top: 15px;
 }
 
 #info-box 
@@ -52,7 +69,7 @@ p
     border-radius: 25px;
 
     position: static;
-    width: 300px;
+    width: 240px;
     height: 35px;
     
     background-color: transparent;
@@ -61,17 +78,18 @@ p
     font-size: 16px;
     text-align: center;
     font-family: sans-serif;
-    color: #FFFFFF;
+    color: #FFFFFF; 
 }
 
 #login-button 
 {
     position: static;
-    width: 300px;
+    width: 130px;
     height: 26px;
 
     background-color: #FFFFFF;
-    border: 1.9px solid #FFFFFF;
+    margin-top: 13px;
+    border: 1.9px solid #643719;
     border-radius: 5px;
     line-height: 10px;
     font-size: 16px;
@@ -84,7 +102,7 @@ p
     position: static;
     width: 110px;
     height: 11px;
-    
+    text-decoration: underline;
     margin-top: 20px;
     line-height: 10px;
     font-size: 16px;
@@ -102,7 +120,7 @@ p
 
 ::placeholder 
 {
-    color: #FFFFFF;
+    color: #D5D9D3;
 }
 
 a:link 
@@ -123,4 +141,79 @@ a:hover
 a:active 
 { 
     text-decoration: none; 
+}
+
+/* * 
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} */
+  
+.body-text 
+{
+  
+    display: flex;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+  
+}
+
+.icon 
+{
+    width: 20%;
+    height: 50%;
+}
+  
+nav 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #a37f52;
+    font-family: sans-serif;
+}
+  
+.heading 
+{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+  
+.nav-links 
+{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+  
+.nav-links li 
+{
+    list-style: none;
+}
+  
+.nav-links a 
+{
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 14px 16px;
+}
+  
+.nav-links a:hover:not(.active) 
+{
+    background-color: #a37f52;
+}
+  
+.nav-links li a.active 
+{
+    background-color: #a37f52;
+  
 }

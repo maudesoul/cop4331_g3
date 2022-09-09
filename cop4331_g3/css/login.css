@@ -1,0 +1,118 @@
+body 
+{
+    position: relative;
+    background-color: #f1d3b0;
+}
+
+p 
+{
+    color: #643719;
+    font-size: 16px;
+    padding-top: 25px;
+}
+
+#center 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#main 
+{
+    width: 510px;
+    height: 440px;
+    margin-top: 710px;
+    border-radius: 10px;
+    background-color: #a37f52;
+}
+
+#login-owl-logo
+{
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+    margin-top: 29px;
+}
+
+#register-owl-logo 
+{
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+    margin-top: 40px;
+}
+
+#login-header-text
+{   
+    position: relative;
+    margin-top: 25px;
+    font-size: 47px;
+    color: #FFFFFF;
+}
+
+#register-header-text
+{   
+    position: relative;
+    margin-top: 15px;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+#username-box,
+#password-box
+{
+    box-sizing: border-box;
+    border-radius: 25px;
+
+    position: static;
+    width: 240px;
+    height: 35px;
+    
+    border: 1.4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: transparent;
+    color: #FFFFFF; 
+}
+
+#login-button,
+#register-button 
+{
+    position: static;
+    width: 130px;
+    height: 26px;
+
+    margin-top: 13px;
+    border-radius: 5px;
+    line-height: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    border: 1.9px solid #643719;
+    background-color: #FFFFFF;
+    color: #643719; 
+}
+
+#login-text,
+#register-text
+{
+    position: static;
+    width: 110px;
+    height: 11px;
+
+    text-decoration: underline;
+    margin-top: 20px;
+    line-height: 10px;
+    font-size: 16px;
+    color: #643719;
+}
+
+::placeholder 
+{
+    color: #D5D9D3;
+}

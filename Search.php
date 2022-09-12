@@ -5,16 +5,16 @@
 	$searchResults = "";
 	$searchCount = 0;
 
-	$conn = new mysqli("localhost", "admin", "testing123", "COP4331");
+	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-		$stmt = $conn->prepare("Select * from Contacts where username = ? and firstname LIKE ? and lastname LIKE ?");
-		$input = "%" . $inData['search'] . "%";
-		$stmt->bind_param("sss", $indata['username'], $input, $input);
+		$stmt = $conn->prepare("Select * FROM Contacts WHERE username = ? AND (firstname like ? OR lastname like ?)");
+		$input = "%" . $inData["search"] . "%";
+		$stmt->bind_param("sss", $inData["username"], $input, $input);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -26,7 +26,7 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$searchResults .= '{"First Name" : "' . $row["firstname"] . '", "Last Name" : "' . $row["lastname"] . '", "Email" : "' . $row["email"] . '", "Phone Number" : "' . $row["phonenumber"] . '"}';
 		}
 		
 		if( $searchCount == 0 )

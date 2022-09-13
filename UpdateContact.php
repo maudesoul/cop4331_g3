@@ -3,25 +3,31 @@
 	$inData = getRequestInfo();
 
 	$username = $inData['username'];
-    	$contactID = $inData['contact_id'];
 	$firstName = $inData['firstname'];
 	$lastName = $inData['lastname'];
 	$phonenumber = $inData['phonenumber'];
 	$email = $inData['email'];
 
-	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331"); 	
+	$conn = new mysqli("localhost", "admin", "my_password", "testdb"); 		
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		if ( $conn->query("UPDATE Contacts SET firstname = $firstName, lastname = $lastName, phonenumber = $phonenumber, email = $email WHERE contactID = $contact_id and username = $username") )
-			echo "Contact updated successfully.";
-		else
-			returnWithError("Contact cannot be updated because this contact does not exist");
-
-		$conn->close();
+		$stmt = $conn->prepare("UPDATE Contacts SET firstname = ?, lastname = ?, phonenumber = ?, email = ? WHERE username = ?");
+		$stmt->bind_param("sssss", $firstName, $lastName, $phonenumber, $email, $username);
+		try {
+			$stmt->execute();
+			$stmt->store_result();
+			echo "Contact Updated.";
+			$stmt->close();
+			$conn->close();
+		}
+		catch (Exception $e)
+		{
+			returnWithError("Error.");
+		}
 	}
 	
 	function getRequestInfo()

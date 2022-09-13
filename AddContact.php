@@ -8,19 +8,26 @@
 	$phonenumber = $inData['phonenumber'];
 	$email = $inData['email'];
 
-	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331"); 	
+	$conn = new mysqli("localhost", "admin", "testing123", "testdb"); 		
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		if ( $conn->query("INSERT INTO Contacts($username, $firstName, $lastName, $phonenumber, $email)") )
-			echo "Contact added successfully.";
-		else
+		$stmt = $conn->prepare("INSERT INTO Contacts (username, firstname, lastname, phonenumber, email) VALUES (?, ?, ?, ?, ?)");
+		$stmt->bind_param("sssss", $username, $firstName, $lastName, $phonenumber, $email);
+		try {
+			$stmt->execute();
+			$stmt->store_result();
+			echo "Contact added successfully..";
+			$stmt->close();
+			$conn->close();
+		}
+		catch (Exception $e)
+		{
 			returnWithError("Contact cannot be added because a contact with this phone number already exists.");
-
-		$conn->close();
+		}
 	}
 	
 	function getRequestInfo()

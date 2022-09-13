@@ -1,4 +1,3 @@
-
 <?php
 
 	$inData = getRequestInfo();
@@ -15,9 +14,17 @@
 	{
 		$stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
 		$stmt->bind_param("ss", $username, $password);
-		$stmt->execute();
-		$stmt->close();
-		$conn->close();
+		try {
+			$stmt->execute();
+			$stmt->store_result();
+			echo "User created.";
+			$stmt->close();
+			$conn->close();
+		}
+		catch (Exception $e)
+		{
+			returnWithError("User already exists.");
+		}
 	}
 	
 	function getRequestInfo()

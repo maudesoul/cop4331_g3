@@ -3,24 +3,24 @@
 	$inData = getRequestInfo();
 	
 	$id = 0;
-	$firstName = "";
-	$lastName = "";
+	$username = "";
+	$password = "";
 
-	$conn = new mysqli("localhost", "digital", "hootDB", "cop4331-g3"); 	
+    $conn = new mysqli("localhost", "admin", "my_password", "testdb"); 
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID,firstName,lastName FROM Users WHERE Login=? AND Password =?");
-		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
+		$stmt = $conn->prepare("SELECT ID,username,password FROM Users WHERE username=? AND password =?");
+		$stmt->bind_param("ss", $inData["username"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		if( $row = $result->fetch_assoc()  )
 		{
-			returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
+			returnWithInfo( $row['username'], $row['password'], $row['ID'] );
 		}
 		else
 		{

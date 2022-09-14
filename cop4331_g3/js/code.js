@@ -1,4 +1,4 @@
-const urlBase = 'http://COP4331-5.com/LAMPAPI';
+const urlBase = 'http://home.maudesoul.com';
 const extension = 'php';
 
 let userId = 0;
@@ -11,8 +11,8 @@ function doLogin()
 	firstName = "";
 	lastName = "";
 	
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
+	let login = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
 //	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
@@ -21,7 +21,7 @@ function doLogin()
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
-	let url = urlBase + '/Login.' + extension;
+	let url = urlBase + '/login.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -46,7 +46,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "menu.html";
 			}
 		};
 		xhr.send(jsonPayload);

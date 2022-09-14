@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/code.js"></script>
     <link href="../css/login.css" rel="stylesheet">
     <title>Hoot! Login</title>
 </head>
@@ -14,16 +15,17 @@
             <img id="login-owl-logo" src="../images/owl.png" alt="owl">
             <h1 id="login-header-text">Hoot!</h1>
             
-            <input id="username-box" type="text" placeholder="Username"/>
+            <input id="username" type="text" placeholder="Username">
             <br><br>
-            <input id="password-box" type="password" placeholder="Password"/>
+            <input id="password" type="password" placeholder="Password">
             <br><br>
                 
-            <a href="/menu.html" id="login-text"><button type="button" id="login-button" onclick="doLogin();">Login</button><a>
+            <button type="button" id="login-button" onclick="doLogin();">Login</button>
             <br>
+            <span id="loginResult"></span>
         </div>
         <p>New to Hoot?
-            <a href="http://127.0.0.1:5500/cop4331_g3/pages/register.html" id="login-text"> Create an account.</a>
+            <a href="http://home.maudesoul.com/pages/register.html" id="login-text">Create an account.</a>
         </p>
     </div>
 </body>

@@ -62,8 +62,8 @@ p
     color: #FFFFFF;
 }
 
-#username-box,
-#password-box
+#username,
+#password
 {
     box-sizing: border-box;
     border-radius: 25px;
@@ -115,4 +115,15 @@ p
 ::placeholder 
 {
     color: #D5D9D3;
+}
+
+#loginResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: sans-serif;
+    color: #95060a;
 }

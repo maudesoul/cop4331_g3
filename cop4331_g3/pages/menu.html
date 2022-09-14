@@ -7,6 +7,13 @@
     <link href="../css/menu.css" rel="stylesheet">
     <link href="../images/search.svg" rel="searchicon">
     <title>Hoot! Landing Page</title>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            readCookie();
+        }, false);
+    </script>
 </head>
 <body>
     <nav>
@@ -15,13 +22,13 @@
         
         <ul>
             <li><a href="#"></a>
-                <img id="home-icon" src="../images/Add.png" alt="add icon">
+                <img id="add-icon" src="../images/Add.png" alt="add icon">
             </li>
             <li><a href="#"></a>
-                <img id="home-icon" src="../images/Delete.png" alt="delete icon">
+                <img id="delete-icon" src="../images/Delete.png" alt="delete icon">
             </li>
             <li><a href="#"></a>
-                <img id="home-icon" src="../images/Logout.png" alt="logout icon">
+                <button type="submit">Logout</button>
             </li>
         </ul>
     </nav>

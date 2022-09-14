@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/code.js"></script>
     <link href="../css/login.css" rel="stylesheet">
     <title>Hoot! Registration</title>
 </head>
@@ -13,16 +14,17 @@
             <img id="register-owl-logo" src="../images/owl.png" alt="owl">
             <h1 id="register-header-text">Welcome to<br>Hoot!</h1>
             
-            <input type="text" id="username-box" placeholder="Username"/>
+            <input type="text" id="username" placeholder="Username">
             <br><br>
-            <input type="password" id="password-box" placeholder="Password"/>
+            <input type="password" id="password" placeholder="Password">
             <br><br>
     
-            <a href="/menu.html" id="register-text"><button type="button" id="register-button" onclick="doLogin();">Create Account</button></a>
+            <button type="button" id="register-button" onclick="doLogin();">Create Account</button>
             <br>
+            <span id="loginResult"></span>
         </div>
         <p>Already have an account?
-            <a href="http://127.0.0.1:5500/cop4331_g3/pages/index.html" id="login-text" > Sign in.</a>
+            <a href="http://home.maudesoul.com/pages/index.html" id="login-text" >Sign in.</a>
         </p>
     </div>
 </body>

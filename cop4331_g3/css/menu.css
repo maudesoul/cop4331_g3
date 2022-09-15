@@ -1,5 +1,4 @@
-/* NAV BAR */
-
+/* Navigation Bar */
 *
 {
     padding: 0;
@@ -38,10 +37,15 @@ nav
     margin-left: 18px;
 }
 
+#icons
+{
+    display: inline-flex;
+}
+
 #add-icon
 {
-    width: 34px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     max-width: 100%;
     margin-top: 25px;
     margin-left: 15px;
@@ -49,16 +53,18 @@ nav
 
 #delete-icon
 {
-    width: 31px;
-    height: 32px;
+    width: 25px;
+    height: 30px;
     max-width: 100%;
     margin-top: 25px;
     margin-left: 15px;
 }
 
-#logout-icon
+#logout-btn
 {
-    width: 38px;
+    color: white;
+    font-family: sans-serif;
+    width: max-content;
     height: 32px;
     max-width: 100%;
     margin-top: 25px;
@@ -67,16 +73,19 @@ nav
 
 #hoot-label 
 {
-    margin-left: 7px;
-    font-size: 42px;
+    margin-left: 10px;
+    font-size: 25px;
     color: #FFFFFF;
+    font-family: sans-serif;
+    position: absolute;
+    top: 5.5%;
+    transform: translate(0, -50%);
 }
 
 label.logo 
 {
     color: white;
     font-size: 35px;
-    line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
 }
@@ -90,7 +99,6 @@ nav ul
 nav ul li 
 {
     display: inline;
-    line-height: 80px;
     margin: 0 5px;
 }
 
@@ -103,11 +111,13 @@ nav ul li
     font-family: sans-serif;
 }
 
-/* SEARCH BAR */
-
+/* Search Bar */
 #search-bar 
 {
-    margin: 25px 35%;
+    margin: auto;
+    display: grid;
+    place-content: center;
+    margin-top: 30px;
 }
 
 form 
@@ -138,6 +148,14 @@ input
     opacity: 0.7; 
 }
 
+button 
+{
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
+
 svg 
 {
     color: #000000;
@@ -145,12 +163,4 @@ svg
     width: 41px;
     height: 41px;
     padding: 11px;
-}
-
-button 
-{
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
 }

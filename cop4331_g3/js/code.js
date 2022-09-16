@@ -8,20 +8,24 @@ let lastName = "";
 function doLogin()
 {
 	userId = 0;
-	firstName = "";
-	lastName = "";
 	
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
-//	var hash = md5( password );
+	// var hash = md5(password);
+
+	if (login == "" || password == "")
+	{
+		document.getElementById("registerResult").innerHTML = "All fields are required.";
+		return;
+	}
 	
 	document.getElementById("loginResult").innerHTML = "";
 
 	let tmp = {login:login,password:password};
-//	var tmp = {login:login,password:hash};
-	let jsonPayload = JSON.stringify( tmp );
-	
-	let url = urlBase + '/login.' + extension;
+	// var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/LAMPAPI/Login.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -40,9 +44,6 @@ function doLogin()
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
 
 				saveCookie();
 	
@@ -55,7 +56,42 @@ function doLogin()
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
+}
 
+function doRegister() 
+{
+	let login = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
+	
+	if (login == "" || password == "")
+	{
+		document.getElementById("registerResult").innerHTML = "All fields are required.";
+		return;
+	}
+
+	let tmp = {username:login,password:password};
+	let jsonPayload = JSON.stringify( tmp );
+
+	var url = urlBase + '/LAMPAPI/Register.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function( ) 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("registerResult").innerHTML = "User has been added.";
+			}
+		};
+		xhr.send(jsonPayload);
+		window.location.href = "menu.html";
+	}
+
+	catch(err) {
+		document.getElementById("registerResult").innerHTML = err.message;
+	}
 }
 
 function saveCookie()
@@ -106,37 +142,6 @@ function doLogout()
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
-}
-
-function addColor()
-{
-	let newColor = document.getElementById("colorText").value;
-	document.getElementById("colorAddResult").innerHTML = "";
-
-	let tmp = {color:newColor,userId,userId};
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/AddColor.' + extension;
-	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
-	}
-	
 }
 
 function searchColor()

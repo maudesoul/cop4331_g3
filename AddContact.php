@@ -8,7 +8,7 @@
 	$phonenumber = $inData['phonenumber'];
 	$email = $inData['email'];
 
-	$conn = new mysqli("localhost", "admin", "testing123", "testdb"); 		
+	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331"); 		
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );

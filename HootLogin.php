@@ -3,24 +3,23 @@
 	$inData = getRequestInfo();
 	
 	$id = 0;
-	$username = "";
-	$password = "";
 
-    $conn = new mysqli("localhost", "admin", "my_password", "testdb"); 
+	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331"); 	
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT ID,username,password FROM Users WHERE username=? AND password =?");
-		$stmt->bind_param("ss", $inData["username"], $inData["password"]);
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE username=? AND password =?");
+		$stmt->bind_param("ss", $inData['login'], $inData['password']);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		if( $row = $result->fetch_assoc()  )
 		{
-			returnWithInfo( $row['username'], $row['password'], $row['ID'] );
+			// Using unique user ID alone to populate Contacts
+			returnWithInfo( $row['id'] );
 		}
 		else
 		{
@@ -44,13 +43,13 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"id":0,"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $firstName, $lastName, $id )
+	function returnWithInfo( $id )
 	{
-		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+		$retValue = '{"id":' . $id . ',"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

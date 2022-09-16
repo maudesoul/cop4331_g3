@@ -12,19 +12,20 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
-		$stmt->bind_param("ss", $username, $password);
-		try {
+		try 
+		{
+			$stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
+			$stmt->bind_param("ss", $username, $password);
 			$stmt->execute();
-			$stmt->store_result();
-			echo "User created.";
-			$stmt->close();
-			$conn->close();
+			returnWithError("");
 		}
 		catch (Exception $e)
 		{
 			returnWithError("User already exists.");
 		}
+
+		$stmt->close();
+		$conn->close();
 	}
 	
 	function getRequestInfo()
@@ -34,7 +35,7 @@
 
 	function sendResultInfoAsJson( $obj )
 	{
-		header('Content-type: application/json');
+		header("Content-type: application/json");
 		echo $obj;
 	}
 	

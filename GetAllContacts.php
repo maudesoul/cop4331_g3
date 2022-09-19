@@ -12,8 +12,8 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("Select * FROM Contacts WHERE username = ?");
-		$stmt->bind_param("s", $inData["username"]);
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE id_fk = ? ORDER BY firstname");
+		$stmt->bind_param("i", $inData["userID"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		

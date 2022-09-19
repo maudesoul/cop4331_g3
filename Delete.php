@@ -2,23 +2,23 @@
 
 	$inData = getRequestInfo();
 
-	$username = $inData['username'];
+	$userId = $inData['userID'];
 	$firstname = $inData['firstname'];
 	$phonenumber = $inData['phonenumber'];
 
-	$conn = new mysqli("localhost", "admin", "testing123", "COP4331"); 	
+	$conn = new mysqli("localhost", "digital", "hootDB", "COP4331"); 	
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("DELETE FROM Contacts WHERE username = ? AND firstname = ? AND phonenumber = ?");
-		$stmt->bind_param("sss", $username, $firstname, $phonenumber);
+		$stmt = $conn->prepare("DELETE FROM Contacts WHERE id_FK = ? AND firstname = ? AND phonenumber = ?");
+		$stmt->bind_param("iss", $userId, $firstname, $phonenumber);
 		$stmt->execute();
 		$stmt->store_result();
 		if ($stmt->affected_rows > 0)
-			echo "Contact deleted successfully.";
+			echo "Success!";
 		else
 			returnWithError("Contact cannot be deleted because it does not exist.");
 		$stmt->close();

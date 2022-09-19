@@ -12,9 +12,9 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("Select * FROM Contacts WHERE username = ? AND (firstname like ? OR lastname like ?)");
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE id_FK = ? AND (firstname like ? OR lastname like ?)");
 		$input = "%" . $inData["search"] . "%";
-		$stmt->bind_param("sss", $inData["username"], $input, $input);
+		$stmt->bind_param("iss", $inData['userID'], $input, $input);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -55,7 +55,7 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"firstName":"","lastName":"","phonenumber":"","email":"","error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
@@ -64,5 +64,5 @@
 		$retValue = '{"results":[' . $searchResults . '],"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
-	
+
 ?>

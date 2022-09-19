@@ -17,7 +17,7 @@
 			$stmt = $conn->prepare("INSERT INTO Users (username, password) VALUES (?, ?)");
 			$stmt->bind_param("ss", $username, $password);
 			$stmt->execute();
-			returnWithError("");
+			echo "user created successfully";
 		}
 		catch (Exception $e)
 		{

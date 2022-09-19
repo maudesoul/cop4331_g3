@@ -51,13 +51,12 @@ nav
     margin-left: 15px;
 }
 
-#delete-icon
+#logout-icon
 {
-    width: 25px;
+    width: 30px;
     height: 30px;
     max-width: 100%;
-    margin-top: 25px;
-    margin-left: 15px;
+    margin-top: 0px;
 }
 
 #logout-btn
@@ -80,6 +79,7 @@ nav
     position: absolute;
     top: 5.5%;
     transform: translate(0, -50%);
+    letter-spacing: 3px;
 }
 
 label.logo 
@@ -124,12 +124,14 @@ form
 {
     background-color: transparent;
     border: 2px solid #a37f52;
-    width: 500px;
-    height: 37px;
+    width: 720px;
+    height: 36px;
     border-radius: 5px;
     display:flex;
     flex-direction:row;
     align-items:center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input 
@@ -144,7 +146,7 @@ input
 
 ::placeholder 
 {
-    color: #000000;
+    color: rgb(45, 43, 43);
     opacity: 0.7; 
 }
 
@@ -158,9 +160,75 @@ button
 
 svg 
 {
-    color: #000000;
+    color: rgb(45, 43, 43);
     fill: currentColor;
     width: 41px;
     height: 41px;
     padding: 11px;
+}
+
+/* Contact Table */
+
+table
+{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    font-family: sans-serif;
+    overflow: hidden;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    table-layout: fixed;
+}
+
+table thead th
+{
+    text-align: left;
+    background: #a37f52;
+    color: #000000;
+}
+
+table td,
+table th 
+{
+    color: #000000;
+    padding: 10px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table tbody tr:nth-of-type(even)
+{
+    background: #FFFFFF;
+    background-color: #a37f52; 
+}
+
+table tbody tr:last-of-type
+{
+    border-bottom: 2px solid #a37f52;
+}
+
+#table-button
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+#tableResults 
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    /* margin-left: 5%; */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: sans-serif;
+    color: #95060a;
 }

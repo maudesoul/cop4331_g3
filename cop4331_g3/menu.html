@@ -7,33 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/menu.css" rel="stylesheet">
     <link href="images/search.svg" rel="searchicon">
-    <title>Hoot! Landing Page</title>
-
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            readCookie();
-        }, false);
+    <script type="text/javascript" src="js/code.js">
+        document.addEventListener('DOMContentLoaded', function() 
+	    {
+		    readCookie();
+	    }, false);
     </script>
+    <title>Hoot! Landing Page</title>
 </head>
 
 <body>
     <div id="header">
         <nav>
             <img id="home-hoot-owl" src="images/owl.png" alt="hoot owl logo">
-            <label id="hoot-label">Welcome, user!</label>
-
+            <label id="hoot-label">Otis says "Hello!"</label>
+            
+            <!-- {{getUsername()}} -->
             <ul id="icons">
                 <li>
-                    <a href="#"></a>
-                    <img id="add-icon" src="images/Add.png" alt="add icon">
+                    <a href="http://home.maudesoul.com/contactAdd.html" id="login-text">
+                        <img id="add-icon" src="images/add.png" alt="add icon">
+                    </a>
                 </li>
                 <li>
-                    <a href="#"></a>
-                    <img id="delete-icon" src="images/Delete.png" alt="delete icon">
-                </li>
-                <li>
-                    <a href="#"></a>
-                    <button id="logout-btn" type="submit">Log Out</button>
+                    <button id="logout-btn" type="submit" onclick="doLogout()">
+                        <img id="logout-icon" src="images/logout.png" alt="logout">
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -41,64 +40,108 @@
     <div id="search-bar">
         <form role="search" id="form">
             <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
-            <button>
+            <button onclick="doSearch()">
                 <svg viewBox="0 0 1024 1024">
                     <path class="path1"
                         d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
                     </path>
                 </svg>
             </button>
+            <span id="searchResult" style="color:white"></span>
+		    <p id="contactList"></p><br><br>
         </form>
+        <br><br>
+
+        <!-- Contacts Table -->
+        <table id="contTable">
+
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id = "tableBody" onload="getContacts()">
+                <tr>
+                    <td contenteditable="true"> Richard</td>
+                    <td contenteditable="true">Leinecker</td>
+                    <td contenteditable="true"> 9548821239</td>
+                    <td contenteditable="true">richardl@gmail.com</td>
+                    <td id="actions-row">
+                        <button onclick="deleteContact()">
+                            <img id="table-button" src="images/delete.png" alt="trash">
+                        </button>
+                        <button onclick="editContact()">
+                            <img id="table-button" src="images/pencil.png" alt="pencil">
+                        </button>
+                </td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Arup</td>
+                    <td contenteditable="true">Guha</td>
+                    <td contenteditable="true">4076581122</td>
+                    <td contenteditable="true">arupg@aol.com</td>
+                    <td id="actions-row">
+                        <button onclick="deleteContact()">
+                            <img id="table-button" src="images/delete.png" alt="trash">
+                        </button>
+                        <button onclick="editContact()">
+                            <img id="table-button" src="images/pencil.png" alt="pencil">
+                        </button>
+                </td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Matthew</td>
+                    <td contenteditable="true">Gerber</td>
+                    <td contenteditable="true">9542345445</td>
+                    <td contenteditable="true">matg@yahoo.com</td>
+                    <td id="actions-row">
+                        <button onclick="deleteContact()">
+                            <img id="table-button" src="images/delete.png" alt="trash">
+                        </button>
+                        <button onclick="editContact()">
+                            <img id="table-button" src="images/pencil.png" alt="pencil">
+                        </button>
+                        <script>
+                            function myCreateFunction() {
+                              var table = document.getElementById("myTable");
+                              var row = table.insertRow(0);
+                              var cell1 = row.insertCell(0);
+                              var cell2 = row.insertCell(1);
+                              var cell3 = row.insertCell(2);
+                              var cell4 = row.insertCell(3);
+                              cell1.innerHTML = "NEW CELL1";
+                              cell2.innerHTML = "NEW CELL2";
+                            }
+                            
+                            function myDeleteFunction() {
+                              document.getElementById("myTable").deleteRow(0);
+                            }
+                            </script>
+                </td>
+                </tr>
+                <!-- <tr>
+                    <td id="first-name-row" contenteditable="false"></td>
+                    <td id="last-name-row" contenteditable="false"></td>
+                    <td id="phone number-row" contenteditable="false"></td>
+                    <td id="email-row"contenteditable="false"></td>
+                    <td id="actions-row">
+                            <button onclick="deleteContact()">
+                                <img id="table-button" src="images/delete.png" alt="trash">
+                            </button>
+                            <button onclick="editContact()">
+                                <img id="table-button" src="images/pencil.png" alt="pencil">
+                            </button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+        <!-- <script> getContacts(); </script> -->
+        <span id="loadTableResult"></span>
+        <div id="tableResults"></div>
     </div>
 </body>
 </html>
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="js/code.js"></script>
-    <link href="css/menu.css" rel="stylesheet">
-    <link href="images/search.svg" rel="searchicon">
-    <title>Hoot! Landing Page</title>
-
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() 
-        {
-            readCookie();
-        }, false);
-    </script>
-</head>
-<body>
-    <nav>
-        <img id="home-hoot-owl" src="images/owl.png" alt="hoot owl logo">
-        <label id="hoot-label">Welcome, user.</label>
-        
-        <ul>
-            <li><a href="#"></a>
-                <img id="add-icon" src="../images/Add.png" alt="add icon">
-            </li>
-            <li><a href="#"></a>
-                <img id="delete-icon" src="../images/Delete.png" alt="delete icon">
-            </li>
-            <li><a href="#"></a>
-                <button type="submit">Logout</button>
-            </li>
-        </ul>
-    </nav>
-    <div id="search-bar">
-        <form role="search" id="form">
-            <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
-            <button>
-                <svg viewBox="0 0 1024 1024">
-                    <path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path>
-                </svg>
-            </button>
-        </form>
-    </div>
-</body>
-</html> -->

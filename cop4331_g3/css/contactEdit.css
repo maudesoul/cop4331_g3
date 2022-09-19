@@ -1,0 +1,181 @@
+body {
+    position: relative;
+    background-color: #f1d3b0;
+}
+
+p {
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.main {
+    width: 510px;
+    height: 440px;
+    margin-top: 710px;
+    border-radius: 10px;
+    background-color: #B08858;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+}
+
+#user-owl-logo {
+    width: 64px;
+    height: 64px;
+    max-width: 100%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+}
+
+/* First and Last Name Edit */
+#divFirstLast {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#first-name-text,
+#last-name-text {
+    position: relative;
+    margin-top: 20px;
+    font-size: 17px;
+    color: white;
+    font-family: sans-serif;
+}
+
+#first-name-text {
+    float: left;
+    margin-left: 75px;
+    margin-top: 0px;
+}
+
+#last-name-text {
+    margin-right: 65px;
+    margin-top: 15px;
+}
+
+#user-name-text {
+    margin-right: 65px;
+    margin-top: 15px;
+}
+
+#first-name-box,
+#last-name-box {
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    width: 175px;
+    height: 25px;
+    background-color: transparent;
+    border: 1.4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #000000;
+    margin-top: 0px;
+}
+
+#first-name-box {
+    margin-right: 10px;
+}
+
+/* Phone Number and Email Edit */
+#number-text,
+#email-text,
+#username-text {
+    position: relative;
+    margin-top: 15px;
+    font-size: 17px;
+    color: white;
+    font-family: sans-serif;
+}
+
+#number-box,
+#email-box,
+#username-box {
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    width: 230px;
+    height: 25px;
+    margin-left: 5px;
+    background-color: transparent;
+    border: 1.4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #000000;
+}
+
+#email-box {
+    margin-left: 7px;
+}
+
+#divPhoneEmail {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 14%;
+}
+
+/* Action Buttons */
+#cancel-btn,
+#submit-btn {
+    background-color: #B08858;
+    border-color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 15px;
+    border: 1px solid white;
+    color: white;
+    font-family: sans-serif;
+}
+
+#divButtons {
+    display: flex;
+    justify-content: center;
+    column-gap: 170px;
+    margin-top: 15px;
+}
+
+#button-1 
+ {
+     width: 200px;
+     float: left;
+     margin-left: 18px;
+     margin-top: 2px;
+}
+
+#button-2 
+{
+     margin-top: 2px;
+}
+
+#divAddButtons {
+    display: flex;
+    justify-content: center;
+    column-gap: 170px;
+    margin-top: 15px;
+    margin-left: 100px;
+}
+
+/* Last Updated */
+.date {
+    position: absolute;
+    right: 0px;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+::placeholder {
+    color: #FFFFFF;
+}

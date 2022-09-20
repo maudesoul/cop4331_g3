@@ -1,14 +1,17 @@
-body {
+body 
+{
     position: relative;
     background-color: #f1d3b0;
 }
 
-p {
+p 
+{
     color: #FFFFFF;
     font-size: 16px;
 }
 
-.main {
+.main 
+{
     width: 510px;
     height: 440px;
     margin-top: 710px;
@@ -16,7 +19,8 @@ p {
     background-color: #B08858;
 }
 
-.center {
+.center 
+{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,7 +28,8 @@ p {
     font-family: sans-serif;
 }
 
-#user-owl-logo {
+#user-owl-logo 
+{
     width: 64px;
     height: 64px;
     max-width: 100%;
@@ -34,13 +39,15 @@ p {
 }
 
 /* First and Last Name Edit */
-#divFirstLast {
+#divFirstLast 
+{
     text-align: center;
     margin-top: 40px;
 }
 
 #first-name-text,
-#last-name-text {
+#last-name-text 
+{
     position: relative;
     margin-top: 20px;
     font-size: 17px;
@@ -48,24 +55,28 @@ p {
     font-family: sans-serif;
 }
 
-#first-name-text {
+#first-name-text 
+{
     float: left;
     margin-left: 75px;
     margin-top: 0px;
 }
 
-#last-name-text {
+#last-name-text 
+{
     margin-right: 65px;
     margin-top: 15px;
 }
 
-#user-name-text {
+#user-name-text 
+{
     margin-right: 65px;
     margin-top: 15px;
 }
 
 #first-name-box,
-#last-name-box {
+#last-name-box 
+{
     box-sizing: border-box;
     border-radius: 15px;
     position: relative;
@@ -81,14 +92,16 @@ p {
     margin-top: 0px;
 }
 
-#first-name-box {
+#first-name-box 
+{
     margin-right: 10px;
 }
 
 /* Phone Number and Email Edit */
 #number-text,
 #email-text,
-#username-text {
+#username-text 
+{
     position: relative;
     margin-top: 15px;
     font-size: 17px;
@@ -98,7 +111,8 @@ p {
 
 #number-box,
 #email-box,
-#username-box {
+#username-box 
+{
     box-sizing: border-box;
     border-radius: 15px;
     position: relative;
@@ -114,11 +128,13 @@ p {
     color: #000000;
 }
 
-#email-box {
+#email-box 
+{
     margin-left: 7px;
 }
 
-#divPhoneEmail {
+#divPhoneEmail 
+{
     display: flex;
     flex-direction: column;
     align-self: flex-start;
@@ -127,7 +143,8 @@ p {
 
 /* Action Buttons */
 #cancel-btn,
-#submit-btn {
+#submit-btn 
+{
     background-color: #B08858;
     border-color: #FFFFFF;
     text-decoration: none;
@@ -141,12 +158,12 @@ p {
 #divButtons {
     display: flex;
     justify-content: center;
-    column-gap: 170px;
+    column-gap: 23px;
     margin-top: 15px;
 }
 
 #button-1 
- {
+{
      width: 200px;
      float: left;
      margin-left: 18px;
@@ -158,7 +175,8 @@ p {
      margin-top: 2px;
 }
 
-#divAddButtons {
+#divAddButtons 
+{
     display: flex;
     justify-content: center;
     column-gap: 170px;
@@ -166,8 +184,22 @@ p {
     margin-left: 100px;
 }
 
+#contactAddResults 
+{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    /* margin-left: 5%; */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: sans-serif;
+    color: #95060a;
+}
+
 /* Last Updated */
-.date {
+.date 
+{
     position: absolute;
     right: 0px;
     color: #FFFFFF;
@@ -176,6 +208,7 @@ p {
     margin-top: 30px;
 }
 
-::placeholder {
+::placeholder 
+{
     color: #FFFFFF;
 }

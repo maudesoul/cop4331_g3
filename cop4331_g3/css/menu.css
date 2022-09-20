@@ -186,7 +186,7 @@ table thead th
 {
     text-align: left;
     background: #a37f52;
-    color: #000000;
+    color: #FFFFFF;
 }
 
 table td,
@@ -194,6 +194,7 @@ table th
 {
     color: #000000;
     padding: 10px 20px;
+    font-weight: lighter;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -206,7 +207,7 @@ table tbody tr:nth-of-type(even)
 
 table tbody tr:last-of-type
 {
-    border-bottom: 2px solid #a37f52;
+    /* border-bottom: 2px solid #a37f52; */
 }
 
 #table-button

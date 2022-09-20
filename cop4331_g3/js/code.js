@@ -3,27 +3,27 @@ const extension = 'php';
 
 var userId = 0;
 var curUsername = "";
+const table = document.querySelector("#contTable");
 
 function doLogin()
 {
 	console.log("Currently userID is" + userId);
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
-	// var hash = md5(password);
 
 	if (login == "" || password == "")
 	{
-		document.getElementById("registerResult").innerHTML = "All fields are required.";
+		document.getElementById("loginResult").innerHTML = "All fields are required.";
 		return;
 	}
 	
 	document.getElementById("loginResult").innerHTML = "";
 
 	var tmp = {login:login,password:password};
-	// var tmp = {login:login,password:hash};
-
 	let jsonPayload = JSON.stringify(tmp);
+
 	let url = urlBase + 'Login.' + extension;
+
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -38,15 +38,13 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					// curUsername = login;
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
-				//curUsername = jsonObject.username;
 				saveCookie();
 				
 				console.log("Currently userID is" + userId);
-				getContacts();
+				// getContacts();
 				window.location.href = "menu.html";
 			}
 		};
@@ -63,16 +61,25 @@ function doRegister()
 	console.log("Currently userID is" + userId);
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
+	let passwordConf = document.getElementById("extra-password").value;
 	
-	if (login == "" || password == "")
+	if (login == "" || password == "" || passwordConf == "")
 	{
 		document.getElementById("registerResult").innerHTML = "All fields are required.";
 		return;
 	}
 
+	if (password != passwordConf)
+	{
+		document.getElementById("registerResult").innerHTML = "Passwords do not match."
+		return;
+	}
+
 	let tmp = {username:login,password:password};
-	let jsonPayload = JSON.stringify( tmp );
+	let jsonPayload = JSON.stringify(tmp);
+
 	var url = urlBase + 'Register.' + extension;
+	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -82,16 +89,14 @@ function doRegister()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				// Needs userID
 				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.id;
-				// curUsername = login;
-				document.getElementById("registerResult").innerHTML = "User has been added.";
+				window.location.href = "index.html";
+				// userId = jsonObject.id; // could possibly use later
+				// document.getElementById("registerResult").innerHTML = "User has been added.";
 			}
-			saveCookie();
 		};
 		xhr.send(jsonPayload);
-		window.location.href = "index.html";
+		// window.location.href = "index.html"; // put on line 95
 	}
 
 	catch(err) 
@@ -121,7 +126,8 @@ function getContacts() //empty
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try {
+	try 
+	{
 	 	xhr.onreadystatechange = function() 
 	 	{
 	 		if (this.readyState == 4 && this.status == 200) 
@@ -137,36 +143,23 @@ function getContacts() //empty
 				{
 					var contact = jsonObject.results[i];
 					console.log(contact.firstname);
-
-					let first = document.getElementById("first");
-					first.innerHTML = "Test";
 					
-					let last = row.insertCell(1);
+					let first = document.getElementById("first");
+					
+					// let first = row.insertCell(1);
+					// first.innerHTML = contact.firstname;
+					
+					let last = row.insertCell(2);
                     last.innerHTML = contact.lastname;
 
-					let eMail = row.insertCell(2);
+					let eMail = row.insertCell(3);
                     eMail.innerHTML = contact.email;
 
-                    let phone = row.insertCell(3);
+                    let phone = row.insertCell(4);
                     phone.innerHTML = contact.phonenumber;
 
-                    let actions = row.insertCell(4);
+                    let actions = row.insertCell(5);
                     actions.innerHTML = '<button onclick="deleteContact()"><img id="table-button" src="images/delete.png" alt="trash"></button><button onclick="editContact()"><img id="table-button" src="images/pencil.png" alt="pencil"></button></tr>';
-
-					// let first = row.insertCell(0);
-                    // first.innerHTML = '<td contenteditable="true">' + contact.firstname + "</td>";
-
-                    // let last = row.insertCell(1);
-                    // last.innerHTML ='<td contenteditable="true">' + contact.lastname + "</td>";
-
-					// let eMail = row.insertCell(2);
-                    // eMail.innerHTML = '<td contenteditable="true">' + contact.email + "</td>";
-
-                    // let phone = row.insertCell(3);
-                    // phone.innerHTML = '<td contenteditable="true">' + contact.phonenumber + "</td>";
-
-                    // let actions = row.insertCell(4);
-                    // actions.innerHTML = '<button onclick="deleteContact()"><img id="table-button" src="images/delete.png" alt="trash"></button><button onclick="editContact()"><img id="table-button" src="images/pencil.png" alt="pencil"></button></tr>';
 
 					contacts.push(contact);
 
@@ -232,6 +225,8 @@ function doSearch()
 
 function addContact()
 {
+	console.log("Starting to add contact...");
+	console.log("Currently userID is" + userId);
 	var newFirstName = document.getElementById("first-name-box").value;
 	var newLastName = document.getElementById("last-name-box").value;
 	var newPhoneNumber = document.getElementById("number-box").value;
@@ -243,13 +238,13 @@ function addContact()
 		return;
 	}
 	
-	document.getElementById("contactAddResult").innerHTML = "";
+	// document.getElementById("contactAddResult").innerHTML = "";
 	
 	let tmp = {
 		firstname:newFirstName,
 		lastname:newLastName,
-		email:newEmail,
 		phonenumber:newPhoneNumber,
+		email:newEmail,
 		id_FK:userId
 	};
 	let jsonPayload = JSON.stringify(tmp);
@@ -258,16 +253,17 @@ function addContact()
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	getContacts();
+	// getContacts();
 	try
 	{
 		xhr.onreadystatechange = function() 
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				let jsonObject = JSON.parse( xhr.responseText );
+				// let jsonObject = JSON.parse( xhr.responseText );
+				document.getElementById("contactAddResult").innerHTML = "Contact added!";
 			}
-			saveCookie();
+			// saveCookie();
 		};
 		xhr.send(jsonPayload);
 		window.location.href = "menu.html";
@@ -278,7 +274,7 @@ function addContact()
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 
-	document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+	// document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 }
 
 function deleteContact()
@@ -429,27 +425,29 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "id_FK=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = "id_FK=" + userId + ";expires=" + date.toGMTString(); // possibly need to add username
 }
 
 function readCookie()
 {
 	userId = -1;
 	let data = document.cookie;
-	console.log(data);
 	let splits = data.split(",");
+
 	console.log(splits);
 	console.log(userId);
-
 
 	for (var i = 0; i < splits.length; i++) 
 	{
 		let thisOne = splits[i].trim();
 		let tokens = thisOne.split("=");
-		if(tokens[0] == "id_FK")
+		if( tokens[0] == "username" )
+		{
+			curUsername = tokens[1];
+		}
+		else if(tokens[0] == "id_FK")
 		{
 			userId = parseInt( tokens[1].trim() );
-			console.log(userId);
 		}
 }
 	if (userId < 0)

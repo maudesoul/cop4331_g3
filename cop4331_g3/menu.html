@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/menu.css" rel="stylesheet">
     <link href="images/search.svg" rel="searchicon">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
     <script type="text/javascript" src="js/code.js">
         document.addEventListener('DOMContentLoaded', function() 
 	    {
@@ -17,12 +19,12 @@
 </head>
 
 <body>
+    <!-- Navigation Bar -->
     <div id="header">
         <nav>
             <img id="home-hoot-owl" src="images/owl.png" alt="hoot owl logo">
             <label id="hoot-label">Otis says "Hello!"</label>
             
-            <!-- {{getUsername()}} -->
             <ul id="icons">
                 <li>
                     <a href="http://home.maudesoul.com/contactAdd.html" id="login-text">
@@ -51,80 +53,34 @@
 		    <p id="contactList"></p><br><br>
         </form>
         <br><br>
+    </div>
 
         <!-- Contacts Table -->
+        <!-- <table id="contTable" onload="getContacts()"> -->
+    <div>
         <table id="contTable">
-
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id = "tableBody" onload="getContacts()">
-                <tr>
-                    <td contenteditable="true"> Richard</td>
-                    <td contenteditable="true">Leinecker</td>
-                    <td contenteditable="true"> 9548821239</td>
-                    <td contenteditable="true">richardl@gmail.com</td>
-                    <td id="actions-row">
-                        <button onclick="deleteContact()">
-                            <img id="table-button" src="images/delete.png" alt="trash">
-                        </button>
-                        <button onclick="editContact()">
-                            <img id="table-button" src="images/pencil.png" alt="pencil">
-                        </button>
-                </td>
-                </tr>
-                <tr>
-                    <td contenteditable="true">Arup</td>
-                    <td contenteditable="true">Guha</td>
-                    <td contenteditable="true">4076581122</td>
-                    <td contenteditable="true">arupg@aol.com</td>
-                    <td id="actions-row">
-                        <button onclick="deleteContact()">
-                            <img id="table-button" src="images/delete.png" alt="trash">
-                        </button>
-                        <button onclick="editContact()">
-                            <img id="table-button" src="images/pencil.png" alt="pencil">
-                        </button>
-                </td>
-                </tr>
-                <tr>
-                    <td contenteditable="true">Matthew</td>
-                    <td contenteditable="true">Gerber</td>
-                    <td contenteditable="true">9542345445</td>
-                    <td contenteditable="true">matg@yahoo.com</td>
-                    <td id="actions-row">
-                        <button onclick="deleteContact()">
-                            <img id="table-button" src="images/delete.png" alt="trash">
-                        </button>
-                        <button onclick="editContact()">
-                            <img id="table-button" src="images/pencil.png" alt="pencil">
-                        </button>
-                        <script>
-                            function myCreateFunction() {
-                              var table = document.getElementById("myTable");
-                              var row = table.insertRow(0);
-                              var cell1 = row.insertCell(0);
-                              var cell2 = row.insertCell(1);
-                              var cell3 = row.insertCell(2);
-                              var cell4 = row.insertCell(3);
-                              cell1.innerHTML = "NEW CELL1";
-                              cell2.innerHTML = "NEW CELL2";
-                            }
-                            
-                            function myDeleteFunction() {
-                              document.getElementById("myTable").deleteRow(0);
-                            }
-                            </script>
-                </td>
-                </tr>
-                <!-- <tr>
-                    <td id="first-name-row" contenteditable="false"></td>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+        <!-- <script> getContacts(); </script> -->
+        <!-- <span id="loadTableResult"></span>
+        <div id="tableResults"></div> -->
+        
+<!-- <td id="first-name-row" contenteditable="false"></td>
                     <td id="last-name-row" contenteditable="false"></td>
                     <td id="phone number-row" contenteditable="false"></td>
                     <td id="email-row"contenteditable="false"></td>
@@ -135,13 +91,4 @@
                             <button onclick="editContact()">
                                 <img id="table-button" src="images/pencil.png" alt="pencil">
                             </button>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
-        <!-- <script> getContacts(); </script> -->
-        <span id="loadTableResult"></span>
-        <div id="tableResults"></div>
-    </div>
-</body>
-</html>
+                    </td> -->

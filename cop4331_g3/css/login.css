@@ -8,7 +8,7 @@ p
 {
     color: #643719;
     font-size: 16px;
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 #center 
@@ -21,13 +21,18 @@ p
     text-align: center;
 }
 
-#main 
+#login-box,
+#register-box 
 {
     width: 510px;
-    height: 440px;
+    height: 490px;
     margin-top: 710px;
     border-radius: 10px;
     background-color: #a37f52;
+}
+
+#login-box {
+    height: 430px;
 }
 
 #login-owl-logo
@@ -63,7 +68,8 @@ p
 }
 
 #username,
-#password
+#password,
+#extra-password
 {
     box-sizing: border-box;
     border-radius: 25px;
@@ -117,7 +123,9 @@ p
     color: #D5D9D3;
 }
 
-#loginResult{
+#loginResult,
+#registerResult
+{
     display: inline-block;
     font-size: 0.8em;
     width: 90%;

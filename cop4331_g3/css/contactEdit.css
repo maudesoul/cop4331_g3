@@ -74,8 +74,10 @@ p
     margin-top: 15px;
 }
 
+#first-name-box-edit,
+#last-name-box-edit,
 #first-name-box,
-#last-name-box 
+#last-name-box
 {
     box-sizing: border-box;
     border-radius: 15px;
@@ -92,7 +94,7 @@ p
     margin-top: 0px;
 }
 
-#first-name-box 
+#first-name-box-edit
 {
     margin-right: 10px;
 }
@@ -109,9 +111,26 @@ p
     font-family: sans-serif;
 }
 
-#number-box,
-#email-box,
-#username-box 
+#number-box-edit,
+#email-box-edit,
+#email-box
+{
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    width: 230px;
+    height: 25px;
+    margin-left: 5px;
+    background-color: transparent;
+    border: 1.4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #000000;
+}
+
+#number-box 
 {
     box-sizing: border-box;
     border-radius: 15px;

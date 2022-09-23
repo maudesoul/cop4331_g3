@@ -1,0 +1,96 @@
+body 
+{
+    position: relative;
+    background-color: #f1d3b0;
+}
+
+p 
+{
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.main 
+{
+    width: 510px;
+    height: 440px;
+    margin-top: 710px;
+    border-radius: 10px;
+    background-color: #B08858;
+}
+
+.center 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#owl-logo 
+{
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+    margin-top: 29px;
+}
+
+#edit-button
+{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 63%;
+    right: 3%;
+}
+
+#header-text
+{   
+    position: relative;
+    margin-top: 15px;
+    font-size: 47px;
+    color: #FFFFFF;
+}
+
+#notes-box 
+{
+    box-sizing: border-box;
+    border-radius: 25px;
+
+    position: static;
+    width: 300px;
+    height: 35px;
+    
+    background-color: transparent;
+    border: 1.4px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #FFFFFF;
+}
+
+#top-bar 
+{
+    position: static;
+    width: 537px;
+    height: 39px;
+    left: 0px;
+    top: 0px;
+}
+
+.date
+{
+    position: absolute;
+    right: 0px;
+    color:#FFFFFF;
+    font-size: 16px;
+}
+
+::placeholder 
+{
+    color: #FFFFFF;
+}

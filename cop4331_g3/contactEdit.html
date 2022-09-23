@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/contactEdit.css" rel="stylesheet">
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() 
+	    {
+		    readCookie();
+	    }, false);
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <div class="main">
+            <br><br>
+            <img id="user-owl-logo" src="images/owl.png" alt="owl">
+
+            <form id="edit-form">
+                <div id="divFirstLast">
+                    <div id="divfn">
+                        <h1 id="first-name-text">First Name:</h1>
+                    </div>
+                    <div id="divln">
+                        <h1 id="last-name-text">Last Name:</h1>
+                    </div>
+                    <input id="first-name-box-edit" type="text" />
+                    <input id="last-name-box-edit" type="text" />
+                </div>
+                <br>
+                <div id="divPhoneEmail">
+                    <h2 id="number-text">Phone Number: <input id="number-box-edit" type="text" /></h2>
+                    <h2 id="email-text">Email Address: <input id="email-box-edit" type="text" /></h2>
+                </div>
+                <div id="divButtons">
+                    <div id="button-1">
+                        <a href="http://home.maudesoul.com/menu.html">
+                        <button id="cancel-btn" type="button">Cancel</button>
+                        </a>
+                    </div>
+                    <div id="button-2">
+                        <a href="http://home.maudesoul.com/menu.html">
+                            <button id="submit-btn" type="button" onclick="saveEdit()">Submit</button>
+                        </a>
+                    </div>
+                    <span id="contactEditResult" style="color: red;"></span>
+                </div>
+            </form>
+            <div>
+                <p class="date">Last updated: <span id="datetime"></span></p>
+                <script>
+                    var dt = document.lastModified;
+                    document.getElementById("datetime").innerHTML = dt;
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

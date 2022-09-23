@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/code.js"></script>
+    <link href="css/login.css" rel="stylesheet">
+    <title>Hoot! Registration</title>
+</head>
+<body>
+    <div id="center">
+        <div id="register-box">
+            <form>
+                <img id="register-owl-logo" src="images/owl.png" alt="owl">
+                <h1 id="register-header-text">Welcome to<br>Hoot!</h1>
+                
+                <input type="text" id="username" placeholder="Username">
+                <br><br>
+                <input type="password" id="password" placeholder="Password">
+                <br><br>
+                <input type="password" id="extra-password" placeholder="Re-Enter Password">
+                <br><br>
+
+                <button type="button" id="register-button" onclick="doRegister();">Create Account</button>
+                <br>
+                <span id="registerResult"></span>
+            </form>
+        </div>
+        <p>Already have an account?
+            <a href="http://home.maudesoul.com/index.html" id="login-text" >Sign in.</a>
+        </p>
+    </div>
+</body>
+</html>
+
